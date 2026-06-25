@@ -1,0 +1,29 @@
+/* Tablet */
+
+@media (max-width: 768px) {
+    .todo-card {
+        padding: 25px;
+    }
+}
+
+/* Mobile */
+
+@media (max-width: 576px) {
+    .todo-card {
+        padding: 20px;
+    }
+
+    .todo-footer {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+    }
+
+    .filter-section {
+        flex-wrap: wrap;
+    }
+
+    #clearCompleted {
+        width: 100%;
+    }
+}

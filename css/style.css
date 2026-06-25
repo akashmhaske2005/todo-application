@@ -1,0 +1,289 @@
+/* ===========
+   Global Styles
+=========== */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    background: #F5F7FB;
+    color: #1F2937;
+}
+
+/* ===========
+   App Layout
+=========== */
+
+.todo-app {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+.todo-card {
+    width: 100%;
+    max-width: 620px;
+    background: #FFFFFF;
+    border-radius: 20px;
+    padding: 35px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .08);
+}
+
+/* ===========
+   Header
+=========== */
+
+.app-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.app-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #2563EB;
+}
+
+.app-subtitle {
+    margin-top: 8px;
+    color: #6B7280;
+}
+
+/* ===========
+   Sections
+=========== */
+
+.add-task,
+.search-section,
+.filter-section,
+.todo-footer {
+    margin-top: 20px;
+}
+
+/* ===========
+   Input Fields
+=========== */
+
+.form-control {
+    height: 52px;
+    border-radius: 10px;
+}
+
+.input-group-text {
+    border-radius: 10px 0 0 10px;
+    background: white;
+}
+
+/* ===========
+   Add Button
+=========== */
+
+#addBtn {
+    width: 60px;
+    border-radius: 10px;
+    font-size: 1.2rem;
+}
+
+/* ===========
+   Filter Buttons
+=========== */
+
+.filter-section {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.filter-btn {
+    border: none;
+    background: #E5E7EB;
+    padding: 8px 18px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: .3s;
+    font-weight: 500;
+}
+
+.filter-btn:hover {
+    background: #2563EB;
+    color: white;
+}
+
+.filter-btn.active {
+    background: #2563EB;
+    color: white;
+}
+
+/* ===========
+   Todo List
+=========== */
+
+.todo-list {
+    list-style: none;
+    margin-top: 25px;
+    padding: 0;
+}
+
+/* Individual todos will be added later */
+
+/* ===========
+   Empty State
+=========== */
+
+.empty-state {
+    text-align: center;
+    padding: 50px 20px;
+    color: #9CA3AF;
+}
+
+.empty-state i {
+    font-size: 3rem;
+    color: #2563EB;
+    margin-bottom: 15px;
+}
+
+.empty-state h3 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+}
+
+/* ===========
+   Footer
+=========== */
+
+.todo-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.task-count {
+    display: flex;
+    flex-direction: column;
+    font-weight: 500;
+}
+
+.task-count span:last-child {
+    color: #22C55E;
+}
+
+/* ===========
+   Todo Item
+=========== */
+
+.todo-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background: #F9FAFB;
+    padding: 15px 20px;
+    border-radius: 12px;
+    margin-bottom: 12px;
+    border: 1px solid #E5E7EB;
+    transition: .3s;
+}
+
+.todo-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, .08);
+}
+
+.todo-item span {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+/* ===========
+   Delete Button
+=========== */
+
+.delete-btn {
+    width: 42px;
+    height: 42px;
+    border: none;
+    border-radius: 10px;
+    background: #FEE2E2;
+    color: #DC2626;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.todo-item .delete-btn:hover {
+    background: #DC2626;
+    color: white;
+}
+
+.delete-btn i {
+    font-size: 1rem;
+}
+
+/* ===========
+   Todo Left
+=========== */
+
+.todo-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* ===========
+   Checkbox
+=========== */
+
+.todo-check {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    accent-color: #22C55E;
+}
+
+/* ===========
+   Completed Task
+=========== */
+
+.completed {
+    text-decoration: line-through;
+    color: #9CA3AF;
+}
+
+/* ===========
+   Todo Actions
+=========== */
+
+.todo-actions {
+    display: flex;
+    gap: 10px;
+}
+
+/* ===========
+   Edit Button
+=========== */
+
+.edit-btn {
+    width: 42px;
+    height: 42px;
+    border: none;
+    border-radius: 10px;
+    background: #DBEAFE;
+    color: #2563EB;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.edit-btn:hover {
+    background: #2563EB;
+    color: white;
+}
+
+.edit-btn i {
+    font-size: 1rem;
+}
