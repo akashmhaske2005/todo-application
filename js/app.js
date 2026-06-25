@@ -1,5 +1,8 @@
+let searchQuery = "";
+
 const todoInput = document.getElementById("todoInput");
 const addBtn = document.getElementById("addBtn");
+const searchInput = document.getElementById("searchInput");
 
 function handleAddTodo() {
     const text = todoInput.value.trim();
@@ -69,6 +72,14 @@ document.getElementById("todoList").addEventListener("click", function (event) {
     editTodo(id, newText.trim());
     saveTodos();
     renderTodos();
+});
+
+searchInput.addEventListener("input", function () {
+
+    searchQuery = searchInput.value.toLowerCase();
+
+    renderTodos();
+
 });
 
 loadTodos();

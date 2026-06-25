@@ -11,42 +11,46 @@ function renderTodos() {
 
     emptyState.style.display = "none";
 
-    todos.forEach(todo => {
+    const filteredTodos = todos.filter(todo =>
+        todo.text.toLowerCase().includes(searchQuery)
+    );
+
+    filteredTodos.forEach(todo => {
         const li = document.createElement("li");
         li.className = "todo-item";
         li.innerHTML = `
-           <div class="todo-left">
-                <input 
-                    type="checkbox"
-                    class="todo-check"
-                    data-id="${todo.id}"
-                    ${todo.completed ? "checked" : ""}>
-        
-                <span class="${todo.completed ? "completed" : ""}">
-                   ${todo.text}
-                </span>
-           </div>
-        
-           <div class="todo-actions">
+        <div class="todo-left">
+            <input 
+                type="checkbox"
+                class="todo-check"
+                data-id="${todo.id}"
+                ${todo.completed ? "checked" : ""}>
 
-                <button
-                    class="edit-btn"
-                    data-id="${todo.id}">
+            <span class="${todo.completed ? "completed" : ""}">
+               ${todo.text}
+            </span>
+        </div>
 
-                    <i class="bi bi-pencil"></i>
+        <div class="todo-actions">
 
-                </button>
+            <button
+                class="edit-btn"
+                data-id="${todo.id}">
 
-                <button
-                    class="delete-btn"
-                    data-id="${todo.id}">
+                <i class="bi bi-pencil"></i>
 
-                    <i class="bi bi-trash"></i>
+            </button>
 
-                </button>
+            <button
+                class="delete-btn"
+                data-id="${todo.id}">
 
-            </div>
-           `;
+                <i class="bi bi-trash"></i>
+
+            </button>
+
+        </div>
+     `;
 
         todoList.appendChild(li);
     });
