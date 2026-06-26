@@ -23,7 +23,7 @@ function handleAddTodo() {
 
 addBtn.addEventListener("click", handleAddTodo);
 
-todoInput.addEventListener("keydown", function(event) {
+todoInput.addEventListener("keydown", function (event) {
     if (event.key === "Enter") {
         handleAddTodo();
     }
@@ -32,15 +32,18 @@ todoInput.addEventListener("keydown", function(event) {
 document.getElementById("todoList").addEventListener("click", function (event) {
     const deleteButton = event.target.closest(".delete-btn");
 
-    if(!deleteButton) {
+    if (!deleteButton) {
         return;
     }
 
     const id = Number(deleteButton.dataset.id);
 
-    deleteTodo(id);
-    saveTodos();
-    renderTodos();
+    setTimeout(function () {
+        deleteTodo(id);
+        saveTodos();
+        renderTodos();
+        
+    }, 300);
 });
 
 document.getElementById("todoList").addEventListener("change", function (event) {

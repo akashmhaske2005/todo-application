@@ -253,6 +253,9 @@ body {
 .completed {
     text-decoration: line-through;
     color: #9CA3AF;
+    opacity: .6;
+    transform: scale(.98);
+    transition: all .3s ease;
 }
 
 /* ===========
@@ -286,4 +289,66 @@ body {
 
 .edit-btn i {
     font-size: 1rem;
+}
+
+/* ===========
+   Animations
+=========== */
+
+/* New Todo Animation */
+.todo-item {
+    animation: fadeIn 0.35s ease;
+
+    transition:
+        transform 0.3s ease,
+        opacity 0.3s ease,
+        background-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+/* Delete Animation */
+.todo-item.removing {
+    opacity: 0;
+    transform: translateX(50px);
+}
+
+/* Button Animation */
+button {
+    transition:
+        background-color .3s ease,
+        transform .2s ease;
+}
+
+button:hover {
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: scale(.96);
+}
+
+/* Input Animation */
+.form-control {
+    transition:
+        border-color .3s ease,
+        box-shadow .3s ease;
+}
+
+.form-control:focus {
+    box-shadow: 0 0 0 4px rgba(37,99,235,.15);
+}
+
+/* Fade In */
+@keyframes fadeIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(-15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
 }
