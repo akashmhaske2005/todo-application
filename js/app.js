@@ -1,8 +1,10 @@
 let searchQuery = "";
+let currentFilter = "all";
 
 const todoInput = document.getElementById("todoInput");
 const addBtn = document.getElementById("addBtn");
 const searchInput = document.getElementById("searchInput");
+const filterButtons = document.querySelectorAll(".filter-btn");
 
 function handleAddTodo() {
     const text = todoInput.value.trim();
@@ -75,10 +77,23 @@ document.getElementById("todoList").addEventListener("click", function (event) {
 });
 
 searchInput.addEventListener("input", function () {
-
     searchQuery = searchInput.value.toLowerCase();
 
     renderTodos();
+});
+
+filterButtons.forEach(button => {
+
+    button.addEventListener("click", function () {
+        currentFilter = button.dataset.filter;
+        filterButtons.forEach(btn =>
+            btn.classList.remove("active")
+        );
+
+        button.classList.add("active");
+
+        renderTodos();
+    });
 
 });
 

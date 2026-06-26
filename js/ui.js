@@ -1,19 +1,47 @@
 function renderTodos() {
     const todoList = document.getElementById("todoList");
     const emptyState = document.getElementById("emptyState");
+    const emptyIcon = document.getElementById("emptyIcon");
+    const emptyTitle = document.getElementById("emptyTitle");
+    const emptyMessage = document.getElementById("emptyMessage");
 
     todoList.innerHTML = "";
 
+    const filteredTodos = todos.filter(todo => {
+        const matchesSearch =
+            todo.text.toLowerCase().includes(searchQuery);
+        let matchesFilter = true;
+        if (currentFilter === "active") {
+            matchesFilter = !todo.completed;
+        }
+
+        if (currentFilter === "completed") {
+            matchesFilter = todo.completed;
+        }
+
+        return matchesSearch && matchesFilter;
+    });
+
     if (todos.length === 0) {
+        emptyIcon.className = "bi bi-check2-square";
+        emptyTitle.textContent = "No tasks yet";
+        emptyMessage.textContent = "Add a new task to get started.";
+
+        emptyState.style.display = "block";
+        return;
+    }
+
+    if (filteredTodos.length === 0) {
+        emptyIcon.className = "bi bi-search";
+        emptyTitle.textContent = "No results found";
+        emptyMessage.textContent = "Try another search or filter.";
+
         emptyState.style.display = "block";
         return;
     }
 
     emptyState.style.display = "none";
 
-    const filteredTodos = todos.filter(todo =>
-        todo.text.toLowerCase().includes(searchQuery)
-    );
 
     filteredTodos.forEach(todo => {
         const li = document.createElement("li");
