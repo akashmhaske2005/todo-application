@@ -5,6 +5,7 @@ const todoInput = document.getElementById("todoInput");
 const addBtn = document.getElementById("addBtn");
 const searchInput = document.getElementById("searchInput");
 const filterButtons = document.querySelectorAll(".filter-btn");
+const clearCompletedBtn = document.getElementById("clearCompleted");
 
 function handleAddTodo() {
     const text = todoInput.value.trim();
@@ -95,6 +96,13 @@ filterButtons.forEach(button => {
         renderTodos();
     });
 
+});
+
+clearCompletedBtn.addEventListener("click", function () {
+    todos = todos.filter(todo => !todo.completed);
+
+    saveTodos();
+    renderTodos();
 });
 
 loadTodos();
